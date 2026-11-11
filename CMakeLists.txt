@@ -21,8 +21,14 @@ add_library(cgp
   src/kernighan_lin.cpp
   src/fiduccia_mattheyses.cpp
   src/multistart.cpp
+  src/profiling.cpp
+  src/driver.cpp
 )
 target_include_directories(cgp PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 find_package(Threads REQUIRED)
 target_link_libraries(cgp PUBLIC Threads::Threads)
+
+add_executable(cgp_cli src/main.cpp)
+set_target_properties(cgp_cli PROPERTIES OUTPUT_NAME cgp)
+target_link_libraries(cgp_cli PRIVATE cgp)

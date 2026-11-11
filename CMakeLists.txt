@@ -12,3 +12,11 @@ endif()
 option(CGP_BUILD_TESTS "Build GoogleTest cases" ON)
 
 add_compile_options(-Wall -Wextra -Wpedantic)
+
+add_library(cgp
+  src/graph.cpp
+  src/hypergraph.cpp
+  src/partition.cpp
+  src/netlist_io.cpp
+)
+target_include_directories(cgp PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)

@@ -33,5 +33,8 @@ add_executable(cgp_cli src/main.cpp)
 set_target_properties(cgp_cli PROPERTIES OUTPUT_NAME cgp)
 target_link_libraries(cgp_cli PRIVATE cgp)
 
+add_executable(cgp_gen benchmarks/gen_netlist.cpp)
+target_link_libraries(cgp_gen PRIVATE cgp)
+
 add_executable(cgp_bench benchmarks/bench_main.cpp)
 target_link_libraries(cgp_bench PRIVATE cgp)

@@ -20,5 +20,9 @@ add_library(cgp
   src/netlist_io.cpp
   src/kernighan_lin.cpp
   src/fiduccia_mattheyses.cpp
+  src/multistart.cpp
 )
 target_include_directories(cgp PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+find_package(Threads REQUIRED)
+target_link_libraries(cgp PUBLIC Threads::Threads)

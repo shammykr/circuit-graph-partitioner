@@ -19,5 +19,6 @@ add_library(cgp
   src/partition.cpp
   src/netlist_io.cpp
   src/kernighan_lin.cpp
+  src/fiduccia_mattheyses.cpp
 )
 target_include_directories(cgp PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)

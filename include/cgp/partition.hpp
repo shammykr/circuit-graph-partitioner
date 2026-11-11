@@ -11,7 +11,8 @@
 namespace cgp {
 
 // Largest block size allowed for a bisection of `n` unit-weight nodes with
-// imbalance tolerance `eps` (0.02 = each side may hold up to 51% of nodes).
+// imbalance tolerance `eps` (0.02 = each side may hold up to 51% of nodes),
+// but never less than floor(n/2) + 1 so that at least one node can move.
 std::size_t max_side_size(std::size_t n, double eps);
 
 // A two-way partition: one byte per node holding its side (0 or 1), plus the

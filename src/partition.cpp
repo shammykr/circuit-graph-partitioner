@@ -7,9 +7,12 @@
 namespace cgp {
 
 std::size_t max_side_size(std::size_t n, double eps) {
-    const std::size_t ceil_half = (n + 1) / 2;
-    const auto with_slack = static_cast<std::size_t>(std::floor((1.0 + eps) * static_cast<double>(n) / 2.0));
-    return std::max(ceil_half, with_slack);
+    // As in the FM paper, always allow at least one cell of slack beyond a
+    // perfect split; otherwise single-node moves are impossible from a
+    // perfectly balanced start.
+    const std::size_t one_cell = n / 2 + 1;
+    const auto with_eps = static_cast<std::size_t>(std::floor((1.0 + eps) * static_cast<double>(n) / 2.0));
+    return std::min(n, std::max(one_cell, with_eps));
 }
 
 Partition::Partition(std::size_t num_nodes) : side_(num_nodes, 0), size_{num_nodes, 0} {}

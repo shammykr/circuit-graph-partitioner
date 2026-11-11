@@ -115,7 +115,7 @@ int main(int argc, char** argv) {
                 continue;
             }
             char line[512];
-            std::snprintf(line, sizeof line, "| %s | %zu | %zu | %zu | %s | %lld | %lld | %s | %zu / %zu | %.3f | %.1f |\n",
+            std::snprintf(line, sizeof line, "| %s | %zu | %zu | %zu | %s | %lld | %lld | %s | %zu / %zu | %.4f | %.1f |\n",
                           name.c_str(), r.nodes, r.nets, r.pins, cgp::algorithm_name(algo),
                           static_cast<long long>(r.random_cut), static_cast<long long>(r.net_cut),
                           algo == cgp::Algorithm::KL ? std::to_string(r.objective).c_str() : "-", r.size0, r.size1,
